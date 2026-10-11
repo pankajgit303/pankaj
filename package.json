@@ -1,11 +1,11 @@
 {
-  "name": "islampur-pujo-hoppers",
+  "name": "islampur-pujoparikrama",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "build": "node -e \"console.log('Build OK')\"",
+    "build": "mkdir -p dist && cp index.html style.css script.js dist/ 2>/dev/null || true",
     "lint": "node -e \"console.log('Lint OK')\""
   },
   "dependencies": {
