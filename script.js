@@ -1361,6 +1361,7 @@ window.reorderStop = reorderStop;
 window.navigateToPage = navigateToPage;
 window.loadPresetRoute = loadPresetRoute;
 window.locateUserOnMap = locateUserOnMap;
+<<<<<<< HEAD
 window.toggleGps = toggleGps;
 window.startGpsWatch = startGpsWatch;
 window.stopGpsWatch = stopGpsWatch;
