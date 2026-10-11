@@ -11,13 +11,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 function getAssetPath(filename) {
-  const p1 = path.join(rootDir, filename);
-  if (fs.existsSync(p1)) return p1;
-  const p2 = path.join(__dirname, filename);
-  if (fs.existsSync(p2)) return p2;
-  return p1;
+  const pDist = path.join(rootDir, 'dist', filename);
+  if (fs.existsSync(pDist)) return pDist;
+  const pRoot = path.join(rootDir, filename);
+  if (fs.existsSync(pRoot)) return pRoot;
+  const pDir = path.join(__dirname, filename);
+  if (fs.existsSync(pDir)) return pDir;
+  return pRoot;
 }
 
+app.use(express.static(path.join(rootDir, 'dist')));
 app.use(express.static(rootDir));
 app.use(express.static(__dirname));
 
