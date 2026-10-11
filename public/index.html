@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#130c22">
+  <meta name="description" content="Discover Durga Puja pandals in Islampur, Uttar Dinajpur with Islampur PujoParikrama. Made by Pankaj Singha.">
+  <meta property="og:title" content="Islampur PujoParikrama | Made by Pankaj Singha">
+  <meta property="og:description" content="Discover Durga Puja pandals in Islampur, Uttar Dinajpur with Islampur PujoParikrama. Made by Pankaj Singha.">
+  <title>Islampur PujoParikrama | Made by Pankaj Singha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="topline"><span class="live-dot"></span> MADE FOR ISLAMPUR · UTTAR DINAJPUR 733202 · BY <a href="https://pankajportfolioo.vercel.app/" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:underline; font-weight:700;">PANKAJ SINGHA</a></div>
+  
+  <header class="site-header">
+    <a class="brand" href="#home" data-page="home" aria-label="Islampur PujoParikrama home">
+      <span class="brand-mark puja-logo-mark" aria-hidden="true">
+        <svg class="puja-logo-svg" viewBox="0 0 44 44" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="durgaGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ea4d3d"/>
+              <stop offset="70%" stop-color="#be281b"/>
+              <stop offset="100%" stop-color="#8a1710"/>
+            </radialGradient>
+          </defs>
+          <circle cx="22" cy="22" r="21" fill="url(#durgaGlow)" stroke="#f6d997" stroke-width="1.8"/>
+          <circle cx="22" cy="22" r="19" stroke="#f6d997" stroke-width="0.6" stroke-dasharray="2 2" fill="none"/>
+          <path d="M22 4 L22 13 M18 8 C18 11.5 22 13 22 13 C22 13 26 11.5 26 8" stroke="#ffe7ad" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          <ellipse cx="22" cy="14" rx="2.2" ry="4" fill="#f8da8c"/>
+          <circle cx="22" cy="14" r="1.1" fill="#8a1710"/>
+          <path d="M7 23.5 C12.5 18 19 22.5 20.5 24 C18.5 27 12 28.5 7 23.5 Z" fill="#ffffff"/>
+          <circle cx="14.5" cy="23.8" r="2.8" fill="#1b0f23"/>
+          <circle cx="15.2" cy="23" r="1" fill="#ffffff"/>
+          <path d="M37 23.5 C31.5 18 25 22.5 23.5 24 C25.5 27 32 28.5 37 23.5 Z" fill="#ffffff"/>
+          <circle cx="29.5" cy="23.8" r="2.8" fill="#1b0f23"/>
+          <circle cx="28.8" cy="23" r="1" fill="#ffffff"/>
+          <circle cx="22" cy="21" r="2" fill="#ffe7ad"/>
+          <circle cx="20" cy="30" r="4.2" stroke="#f8da8c" stroke-width="1.2" fill="none"/>
+          <circle cx="16" cy="31" r="1.3" fill="#ffffff"/>
+        </svg>
+      </span>
+      <span class="brand-text-block">
+        <span class="brand-title">ISLAMPUR <span class="brand-accent">PUJOPARIKRAMA</span></span>
+        <span class="brand-sub">ইসলামপুর দুর্গাপূজা পরিক্রমা · 733202</span>
+      </span>
+    </a>
+    <nav aria-label="Main Navigation">
+      <a href="#home" class="nav-link active" data-page="home">Home</a>
+      <a href="#map" class="nav-link" data-page="map">Map</a>
+      <a href="#near-me" class="nav-link" data-page="near-me">Near Me</a>
+      <a href="#route" class="nav-link" data-page="route">Route <span class="route-badge-count" id="headerRouteCount">0</span></a>
+    </nav>
+    <a class="header-cta" href="#map" data-page="map">Open Map <span>↗</span></a>
+  </header>
+
+  <main>
+    <!-- ========================================================
+         PAGE 1: HOME
+         ======================================================== -->
+    <div id="page-home" class="app-page active">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="eyebrow"><span>শারদীয়া</span> THE CITY IS YOUR PANDAL</div>
+          <h1>One town.<br><em>A thousand</em><br>Pujo memories.</h1>
+          <p class="hero-copy">Your comprehensive guide to Durga Puja across Islampur. Explore all 27 pandals & mandirs, navigate with live maps, find what's near you, and craft your night route.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#map" data-page="map">Interactive Map <span>🗺️</span></a>
+            <a class="button button-gold" href="#near-me" data-page="near-me">Pandals Near Me <span>📍</span></a>
+            <a class="button button-ghost" href="#route" data-page="route">Plan Route <span>🚶</span></a>
+          </div>
+          <div class="hero-note">
+            <span class="note-icon">✧</span>
+            <span><b>আমাদের ইসলামপুর · PujoParikrama</b><br><small>Curated & built with love by <a href="https://pankajportfolioo.vercel.app/" target="_blank" rel="noopener" style="color:#f6d9a2; text-decoration:underline; font-weight:600;">Pankaj Singha</a></small></span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a festive Durga Puja pandal">
+          <div class="art-glow"></div>
+          <div class="moon"></div>
+          <div class="arch arch-back"></div>
+          <div class="arch arch-mid"></div>
+          <div class="arch arch-front"></div>
+          <div class="idol">
+            <div class="halo"></div><div class="crown"></div><div class="face"></div>
+            <div class="hair"></div><div class="necklace"></div>
+            <div class="sari"></div><div class="arm arm-left"></div><div class="arm arm-right"></div>
+          </div>
+          <div class="art-caption"><span>01 / ISLAMPUR</span><b>Pujo looks good on us.</b></div>
+          <span class="spark spark-one">✦</span><span class="spark spark-two">✧</span><span class="spark spark-three">✦</span>
+        </div>
+        <div class="hero-bottom">
+          <span>SCROLL TO EXPLORE</span>
+          <span class="scroll-line"></span>
+          <span>26°16' N · 88°12' E APPROX.</span>
+        </div>
+      </section>
+
+      <!-- Quick Feature Hub -->
+      <section class="quick-hub">
+        <div class="hub-card">
+          <div>
+            <div class="hub-card-icon map-icon">🗺️</div>
+            <h3>Explore Live Map</h3>
+            <p>Interactive full-town map with all 27 pandals and temples plotted with custom markers and directions.</p>
+          </div>
+          <a class="hub-card-link" href="#map" data-page="map">Open Map View ↗</a>
+        </div>
+        <div class="hub-card">
+          <div>
+            <div class="hub-card-icon near-icon">📍</div>
+            <h3>Pandals Near Me</h3>
+            <p>Real-time proximity radar. Calculate walking and toto travel times to the nearest pandals in town.</p>
+          </div>
+          <a class="hub-card-link" href="#near-me" data-page="near-me">Check Distance ↗</a>
+        </div>
+        <div class="hub-card">
+          <div>
+            <div class="hub-card-icon route-icon">🚶</div>
+            <h3>Custom Route Planner</h3>
+            <p>Build your multi-stop pandal hopping trail with curated circuits and multi-stop Google Maps navigation.</p>
+          </div>
+          <a class="hub-card-link" href="#route" data-page="route">Build Your Route ↗</a>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Festival message">
+        <div>ঢাকের তালে <span>✦</span> LIGHTS ON, WORRIES OFF <span>✦</span> SHUBHO SHARODIYA <span>✦</span> ISLAMPUR, WE ARE READY <span>✦</span> </div>
+      </section>
+
+      <!-- Explore Directory -->
+      <section class="section explore-section" id="explore">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow dark-eyebrow">YOUR LOCAL PUJO DIRECTORY</div>
+            <h2>Find your next <em>stop.</em></h2>
+          </div>
+          <p>From iconic town clubs to quiet neighborhood temples—discover all 27 pandal destinations right here in Islampur.</p>
+        </div>
+        
+        <div class="search-row">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="Search pandal, street, or neighbourhood..." aria-label="Search pandals">
+          </label>
+          <select id="areaFilter" class="filter-select" aria-label="Filter by area">
+            <option value="all">All areas (27)</option>
+            <option value="Town">Islampur town / central areas</option>
+            <option value="Khudirampally">Khudirampally</option>
+            <option value="Deshbandhupara">Deshbandhupara / New Town</option>
+            <option value="Majid Nagar">Majid Nagar</option>
+            <option value="Milanpally">Milanpally</option>
+            <option value="Netajipally">Netajipally</option>
+          </select>
+        </div>
+
+        <div class="results-meta">
+          <span id="resultCount">27 LOCAL PLACES</span>
+          <span>COMMUNITY LISTINGS · VERIFY BEFORE VISITING</span>
+        </div>
+
+        <div class="pandal-grid" id="pandalGrid">
+          <article class="pandal-card" data-name="Islampur Kamal Memorial Club (KMC)" data-area="Town" data-neighbourhood="KMC More / Old Stationpally">
+            <div class="card-art card-art-1"><span class="card-number">01</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Islampur Kamal Memorial Club (KMC)</h3>
+              <p>KMC More / Old Stationpally. Iconic town celebration with grand lighting and traditional idol.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(1)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="1" onclick="togglePandalInRoute(1)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 KMC More / Old Stationpally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Islampur+Kamal+Memorial+Club+KMC+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Deshbandhupara Adarsha Sangha" data-area="Deshbandhupara" data-neighbourhood="Shibdange Para West / Newtown Road">
+            <div class="card-art card-art-2"><span class="card-number">02</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">DESHBANDHUPARA · ISLAMPUR</div>
+              <h3>Deshbandhupara Adarsha Sangha</h3>
+              <p>Shibdange Para West / Newtown Road. Famous for creative pandal art and festive gathering.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(2)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="2" onclick="togglePandalInRoute(2)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Shibdange Para West / Newtown Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Deshbandhupara+Adarsha+Sangha+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Mandalpara Durga Puja Committee" data-area="Khudirampally" data-neighbourhood="Mandal Para, Khudirampally">
+            <div class="card-art card-art-3"><span class="card-number">03</span><span class="card-tag">LOCAL DISCOVERY</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">KHUDIRAMPALLY · ISLAMPUR</div>
+              <h3>Mandalpara Durga Puja Committee</h3>
+              <p>Mandal Para, Khudirampally. Warm community atmosphere with cultural programs.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(3)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="3" onclick="togglePandalInRoute(3)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Mandal Para, Khudirampally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Mandalpara+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Puratanpally Durga Puja" data-area="Khudirampally" data-neighbourhood="Puratanpally, Khudirampally">
+            <div class="card-art card-art-4"><span class="card-number">04</span><span class="card-tag">NEIGHBOURHOOD</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">KHUDIRAMPALLY · ISLAMPUR</div>
+              <h3>Puratanpally Durga Puja</h3>
+              <p>Puratanpally, Khudirampally. One of the classic neighbourhood pujas of the area.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(4)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="4" onclick="togglePandalInRoute(4)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Puratanpally, Khudirampally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Puratanpally+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Amra Sabai Durgapuja Committee Puja Prangan" data-area="Khudirampally" data-neighbourhood="Khudirampally">
+            <div class="card-art card-art-5"><span class="card-number">05</span><span class="card-tag">PUJO TRAIL</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">KHUDIRAMPALLY · ISLAMPUR</div>
+              <h3>Amra Sabai Durgapuja Committee</h3>
+              <p>Khudirampally. Vibrant community spirit, spectacular evening lighting, and cultural events.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(5)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="5" onclick="togglePandalInRoute(5)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Khudirampally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Amra+Sabai+Durgapuja+Committee+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Milanpally Durga Mandir" data-area="Milanpally" data-neighbourhood="Barhat, Islampur">
+            <div class="card-art card-art-6"><span class="card-number">06</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">MILANPALLY · ISLAMPUR</div>
+              <h3>Milanpally Durga Mandir</h3>
+              <p>Barhat, Islampur. Historic Durga Mandir revered by devotees throughout the year.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(6)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="6" onclick="togglePandalInRoute(6)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Barhat, Islampur</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Milanpally+Durga+Mandir+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Nandi Bari Durga Mandir" data-area="Majid Nagar" data-neighbourhood="Ram Krishna Pally, Majid Nagar">
+            <div class="card-art card-art-1"><span class="card-number">07</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">MAJID NAGAR · ISLAMPUR</div>
+              <h3>Nandi Bari Durga Mandir</h3>
+              <p>Ram Krishna Pally, Majid Nagar. Traditional family temple welcoming all visitors.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(7)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="7" onclick="togglePandalInRoute(7)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Ram Krishna Pally, Majid Nagar</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Nandi+Bari+Durga+Mandir+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Durga Mandir — Babupara" data-area="Town" data-neighbourhood="Babupara, Siliguri–Purnia Road">
+            <div class="card-art card-art-2"><span class="card-number">08</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Durga Mandir — Babupara</h3>
+              <p>Babupara, Siliguri–Purnia Road. Central location with steady footfall and serene bhog.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(8)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="8" onclick="togglePandalInRoute(8)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Babupara, Siliguri–Purnia Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Durga+Mandir+Babupara+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Choprajhar Sarbojonin Durga Temple" data-area="Majid Nagar" data-neighbourhood="Majid Nagar, Islampur–Lodhan Road">
+            <div class="card-art card-art-3"><span class="card-number">09</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">MAJID NAGAR · ISLAMPUR</div>
+              <h3>Choprajhar Sarbojonin Durga Temple</h3>
+              <p>Majid Nagar, Islampur–Lodhan Road. Sarbojonin celebration with devotional ambiance.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(9)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="9" onclick="togglePandalInRoute(9)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Majid Nagar, Islampur–Lodhan Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Choprajhar+Sarbojonin+Durga+Temple">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Khudirampally Durga Mandir" data-area="Khudirampally" data-neighbourhood="Khudirampally">
+            <div class="card-art card-art-4"><span class="card-number">10</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">KHUDIRAMPALLY · ISLAMPUR</div>
+              <h3>Khudirampally Durga Mandir</h3>
+              <p>Khudirampally. Cherished neighbourhood temple with timeless rituals.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(10)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="10" onclick="togglePandalInRoute(10)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Khudirampally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Khudirampally+Durga+Mandir">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Paul Bari Durga Mandir" data-area="Deshbandhupara" data-neighbourhood="Shibdange Para West">
+            <div class="card-art card-art-5"><span class="card-number">11</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">DESHBANDHUPARA · ISLAMPUR</div>
+              <h3>Paul Bari Durga Mandir</h3>
+              <p>Shibdange Para West. Traditional family mandir puja preserved over decades.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(11)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="11" onclick="togglePandalInRoute(11)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Shibdange Para West</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Paul+Bari+Durga+Mandir+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Sri Sri Sarbojonin Durga Mandir" data-area="Town" data-neighbourhood="Teenpool, Netaji Subhash Road">
+            <div class="card-art card-art-6"><span class="card-number">12</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Sri Sri Sarbojonin Durga Mandir</h3>
+              <p>Teenpool, Netaji Subhash Road. Bustling stop near the market with lively crowd.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(12)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="12" onclick="togglePandalInRoute(12)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Teenpool, Netaji Subhash Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Sri+Sarbojonin+Durga+Mandir+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Ram Krishna Pally Durga Mandir" data-area="Majid Nagar" data-neighbourhood="Ram Krishna Pally, Majid Nagar">
+            <div class="card-art card-art-1"><span class="card-number">13</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">MAJID NAGAR · ISLAMPUR</div>
+              <h3>Ram Krishna Pally Durga Mandir</h3>
+              <p>Ram Krishna Pally, Majid Nagar. Warm local committee puja with festive sound of dhak.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(13)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="13" onclick="togglePandalInRoute(13)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Ram Krishna Pally, Majid Nagar</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Ram+Krishna+Pally+Durga+Mandir+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Adi Maa Durga Temple" data-area="Town" data-neighbourhood="Narayanpur, Islampur">
+            <div class="card-art card-art-2"><span class="card-number">14</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Adi Maa Durga Temple</h3>
+              <p>Narayanpur, Islampur. One of the oldest venerated mandirs in northern Islampur.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(14)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="14" onclick="togglePandalInRoute(14)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Narayanpur, Islampur</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Adi+Maa+Durga+Temple+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Ma Durga and Ma Kali Mandir" data-area="Town" data-neighbourhood="Molnapara, Lokenath Road">
+            <div class="card-art card-art-3"><span class="card-number">15</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Ma Durga and Ma Kali Mandir</h3>
+              <p>Molnapara, Lokenath Road. Combined temple offering a spiritually rich experience.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(15)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="15" onclick="togglePandalInRoute(15)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Molnapara, Lokenath Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Ma+Durga+Ma+Kali+Mandir+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Durga Mandir — Bolhanja" data-area="Town" data-neighbourhood="Bolhanja, Patagora Road">
+            <div class="card-art card-art-4"><span class="card-number">16</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Durga Mandir — Bolhanja</h3>
+              <p>Bolhanja, Patagora Road. Peaceful stop on the Patagora corridor.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(16)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="16" onclick="togglePandalInRoute(16)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Bolhanja, Patagora Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Durga+Mandir+Bolhanja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Charkhamba Sarbajanin Durga Temple" data-area="Town" data-neighbourhood="Charkhamba, Islampur–Lodhan Road">
+            <div class="card-art card-art-5"><span class="card-number">17</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Charkhamba Sarbajanin Durga Temple</h3>
+              <p>Charkhamba, Islampur–Lodhan Road. Deep-rooted celebration loved by nearby residents.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(17)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="17" onclick="togglePandalInRoute(17)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Charkhamba, Islampur–Lodhan Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Charkhamba+Sarbajanin+Durga+Temple">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Shiv Kali Nav Durga Mandir" data-area="Town" data-neighbourhood="Durga Nagar, Siliguri–Purnia Road">
+            <div class="card-art card-art-6"><span class="card-number">18</span><span class="card-tag">TEMPLE STOP</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Shiv Kali Nav Durga Mandir</h3>
+              <p>Durga Nagar, Siliguri–Purnia Road. Prominent shrine featuring all nine avatars of Durga.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(18)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="18" onclick="togglePandalInRoute(18)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Durga Nagar, Siliguri–Purnia Road</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Shiv+Kali+Nav+Durga+Mandir+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Netajipally &amp; Blockpara Sarbojonin Durga Puja Committee" data-area="Netajipally" data-neighbourhood="Netajipally">
+            <div class="card-art card-art-1"><span class="card-number">19</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">NETAJIPALLY · ISLAMPUR</div>
+              <h3>Netajipally &amp; Blockpara Sarbojonin Durga Puja</h3>
+              <p>Netajipally. Massive crowd favorite featuring artistic pandal concepts.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(19)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="19" onclick="togglePandalInRoute(19)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Netajipally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Netajipally+Blockpara+Sarbojonin+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Royal Sporting Club" data-area="Town" data-neighbourhood="Thana Colony">
+            <div class="card-art card-art-2"><span class="card-number">20</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Royal Sporting Club</h3>
+              <p>Thana Colony. Renowned for innovative illumination gates and cultural performances.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(20)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="20" onclick="togglePandalInRoute(20)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Thana Colony</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Royal+Sporting+Club+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Islampur Tarun Sangha" data-area="Town" data-neighbourhood="Power Housepara">
+            <div class="card-art card-art-3"><span class="card-number">21</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Islampur Tarun Sangha</h3>
+              <p>Power Housepara. Energetic youth club organizing grand celebrations and anjali.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(21)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="21" onclick="togglePandalInRoute(21)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Power Housepara</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Islampur+Tarun+Sangha+Durga+Puja">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Agragami Sangha" data-area="Milanpally" data-neighbourhood="Milanpally">
+            <div class="card-art card-art-4"><span class="card-number">22</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">MILANPALLY · ISLAMPUR</div>
+              <h3>Agragami Sangha</h3>
+              <p>Milanpally. Delightful local pandal with traditional dhunuchi naach and aarti.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(22)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="22" onclick="togglePandalInRoute(22)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Milanpally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Agragami+Sangha+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Agrodoot Sangha" data-area="Town" data-neighbourhood="Collegemore">
+            <div class="card-art card-art-5"><span class="card-number">23</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Agrodoot Sangha</h3>
+              <p>Collegemore. Bustling crossroads venue with vibrant food stalls and lighting.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(23)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="23" onclick="togglePandalInRoute(23)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Collegemore</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Agrodoot+Sangha+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Ashrampara Durga Puja Committee" data-area="Town" data-neighbourhood="Ashrampara">
+            <div class="card-art card-art-6"><span class="card-number">24</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">TOWN · ISLAMPUR</div>
+              <h3>Ashrampara Durga Puja Committee</h3>
+              <p>Ashrampara. Serene pandal with melodious stotras and traditional decoration.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(24)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="24" onclick="togglePandalInRoute(24)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Ashrampara</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Ashrampara+Durga+Puja+Committee+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Mukti Sangha" data-area="Milanpally" data-neighbourhood="Milan Pally">
+            <div class="card-art card-art-1"><span class="card-number">25</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">MILANPALLY · ISLAMPUR</div>
+              <h3>Mukti Sangha</h3>
+              <p>Milan Pally. Long-standing club famous for grand idol presentation and community bhog.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(25)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="25" onclick="togglePandalInRoute(25)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Milan Pally</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Mukti+Sangha+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="Netajee Sangha Durga Puja" data-area="Netajipally" data-neighbourhood="Islampur">
+            <div class="card-art card-art-2"><span class="card-number">26</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">NETAJIPALLY · ISLAMPUR</div>
+              <h3>Netajee Sangha Durga Puja</h3>
+              <p>Islampur. Popular community landmark attracting hoppers from across town.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(26)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="26" onclick="togglePandalInRoute(26)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 Islampur</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Netajee+Sangha+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+
+          <article class="pandal-card" data-name="New Town Durga Puja" data-area="Deshbandhupara" data-neighbourhood="New Town, Islampur">
+            <div class="card-art card-art-3"><span class="card-number">27</span><span class="card-tag">COMMUNITY PUJO</span><div class="mini-pandal"><i></i><i></i><i></i><b>✦</b></div><span class="card-art-label">ISLAMPUR · PUJOPARIKRAMA</span></div>
+            <div class="card-body">
+              <div class="card-area">DESHBANDHUPARA · ISLAMPUR</div>
+              <h3>New Town Durga Puja</h3>
+              <p>New Town, Islampur. Lively neighborhood celebration with warm hospitality.</p>
+              <div class="card-actions-bar">
+                <button class="btn-card-action" onclick="focusMapOnPandal(27)">📍 Map</button>
+                <button class="btn-card-action btn-toggle-route" data-id="27" onclick="togglePandalInRoute(27)">+ Add to Route</button>
+              </div>
+              <div class="card-footer"><span>📍 New Town, Islampur</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=New+Town+Durga+Puja+Islampur">Directions ↗</a></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state" id="emptyState" hidden>No matching pandals found. Try another name or area.</div>
+        <p class="data-note">Community guide: This directory combines community puja committees and Durga temples across Islampur. Verify arrangements with local organisers before visiting.</p>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-icon">✺</div>
+        <div>
+          <div class="eyebrow dark-eyebrow">A LITTLE LOVE FOR OUR TOWN</div>
+          <h2>Big festival energy.<br><em>Local heart.</em></h2>
+        </div>
+        <p><b>Islampur PujoParikrama</b> is built by <a href="https://pankajportfolioo.vercel.app/" target="_blank" rel="noopener" style="color:var(--red); font-weight:700; text-decoration:underline;">Pankaj Singha</a> to help residents, friends, and visitors celebrate Durga Puja around Islampur, Uttar Dinajpur 733202. Discover local pandals, map convenient routes, and make the most of every festive evening.</p>
+        <div style="grid-column: 2 / 4; display:flex; gap:20px; flex-wrap:wrap; margin-top:8px;">
+          <a class="text-link" target="_blank" rel="noopener" href="https://pankajportfolioo.vercel.app/">Visit Pankaj Singha Portfolio ↗</a>
+          <a class="text-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/Durga+Puja+Islampur+733202/">Find Islampur on Google Maps ↗</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================
+         PAGE 2: MAP
+         ======================================================== -->
+    <div id="page-map" class="app-page">
+      <div class="page-container">
+        <div class="page-header">
+          <div class="eyebrow">INTERACTIVE FESTIVAL MAP</div>
+          <h1>Explore Islampur <em>Pandals</em></h1>
+          <p>Browse all 27 pandals & temples plotted on our live map. Click on any marker to view details, inspect directions, or add to your custom route.</p>
+        </div>
+
+        <div class="map-toolbar">
+          <div class="map-pills">
+            <button class="filter-pill active" data-area="all">All Areas (27)</button>
+            <button class="filter-pill" data-area="Town">Town Central</button>
+            <button class="filter-pill" data-area="Khudirampally">Khudirampally</button>
+            <button class="filter-pill" data-area="Deshbandhupara">Deshbandhupara</button>
+            <button class="filter-pill" data-area="Majid Nagar">Majid Nagar</button>
+            <button class="filter-pill" data-area="Milanpally">Milanpally</button>
+            <button class="filter-pill" data-area="Netajipally">Netajipally</button>
+          </div>
+          <div class="map-tools">
+            <button class="button button-ghost" style="color:var(--ink); border-color:#cfc2b4;" id="btnResetMap">↺ Reset</button>
+            <button class="button button-primary" id="btnMapLocate"><span>📍</span> Locate Me (GPS)</button>
+          </div>
+        </div>
+
+        <div class="map-wrapper">
+          <div id="leaflet-map" role="region" aria-label="Interactive map of Islampur pandals"></div>
+          <button class="map-floating-gps-btn" id="mapFloatGpsBtn" title="Show my current GPS position" aria-label="Show my current GPS position">
+            🎯
+          </button>
+          <div class="map-gps-banner" id="mapGpsBanner" hidden>
+            <div class="map-banner-content">
+              <span class="gps-live-dot"></span>
+              <span id="mapGpsBannerText">GPS Location active</span>
+            </div>
+            <button class="btn-banner-close" onclick="closeMapGpsBanner()" aria-label="Dismiss banner">✕</button>
+          </div>
+        </div>
+
+        <div class="map-drawer-section">
+          <div class="drawer-header">
+            <h3>Pandals in View</h3>
+            <span style="font-size:12px; font-weight:700; color:var(--muted);">Click any card to zoom directly</span>
+          </div>
+          <div class="map-pandal-list" id="mapDrawerList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         PAGE 3: NEAR ME
+         ======================================================== -->
+    <div id="page-near-me" class="app-page">
+      <div class="page-container">
+        <div class="page-header">
+          <div class="eyebrow">HYPERLOCAL PUJO RADAR</div>
+          <h1>Pandals <em>Near You</em></h1>
+          <p>Find the closest Durga Puja pandals to where you are standing right now in Islampur, with estimated walking and toto travel times.</p>
+        </div>
+
+        <div class="radar-hero">
+          <div class="radar-info">
+            <h2>Live Distance Radar</h2>
+            <p>Use your device GPS or pick a nearby landmark to calculate accurate distances to all pandals in Islampur.</p>
+            <div class="location-status-badge" id="locationBadge">
+              <span class="dot"></span> Simulating from KMC More, Islampur
+            </div>
+          </div>
+          <div class="radar-action">
+            <button class="button button-gold" id="btnGpsLocate" style="gap:8px;">
+              <span>🎯</span> Use My GPS Location
+            </button>
+          </div>
+        </div>
+
+        <!-- Simulated Landmark Picker -->
+        <div class="landmark-selector-box">
+          <div class="landmark-selector-title">Or calculate distance from a known Islampur landmark:</div>
+          <div class="landmark-chips">
+            <button class="chip-btn active" data-landmark="kmc">KMC More / Station</button>
+            <button class="chip-btn" data-landmark="teenpool">Teenpool / NS Road</button>
+            <button class="chip-btn" data-landmark="collegemore">Collegemore</button>
+            <button class="chip-btn" data-landmark="khudirampally">Khudirampally More</button>
+            <button class="chip-btn" data-landmark="milanpally">Milanpally</button>
+            <button class="chip-btn" data-landmark="deshbandhupara">Deshbandhupara</button>
+            <button class="chip-btn" data-landmark="majidnagar">Majid Nagar</button>
+          </div>
+        </div>
+
+        <div class="near-controls">
+          <div class="distance-filter-pills">
+            <button class="filter-pill active" data-dist="all">All Distances</button>
+            <button class="filter-pill" data-dist="500m">Within 500m (Walking)</button>
+            <button class="filter-pill" data-dist="1km">Within 1 km</button>
+            <button class="filter-pill" data-dist="2km">Within 2 km</button>
+          </div>
+          <span id="nearCount" style="font-size:11px; font-weight:800; letter-spacing:1px; color:#8a7d89;">27 PANDALS FOUND</span>
+        </div>
+
+        <div class="near-list" id="nearMeList"></div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         PAGE 4: ROUTE
+         ======================================================== -->
+    <div id="page-route" class="app-page">
+      <div class="page-container">
+        <div class="page-header">
+          <div class="eyebrow">CUSTOM PUJO HOPPING ITINERARY</div>
+          <h1>Plan Your <em>Pujo Route</em></h1>
+          <p>Assemble your personalized night tour, reorder stops, calculate total distances, and open full multi-stop navigation in Google Maps.</p>
+        </div>
+
+        <!-- Curated Preset Trails -->
+        <section class="curated-trails-section">
+          <div class="curated-trails-header">
+            <h2>Curated Popular Trails</h2>
+            <p style="font-size:12px; color:var(--muted); margin:0;">Click any trail to instantly load it into your night route:</p>
+          </div>
+          <div class="curated-grid">
+            <div class="curated-card" data-preset="heritage">
+              <div>
+                <div class="curated-badge">RECOMMENDED</div>
+                <h3>Town Heritage Trail</h3>
+                <p>KMC More, Teenpool Mandir, Babupara, Royal Sporting & Agrodoot.</p>
+              </div>
+              <div class="curated-meta">
+                <span>5 Stops</span>
+                <span>~1.8 km · 1h 45m</span>
+              </div>
+            </div>
+            <div class="curated-card" data-preset="khudirampally">
+              <div>
+                <div class="curated-badge">NEIGHBOURHOOD CIRCUIT</div>
+                <h3>Khudirampally Circuit</h3>
+                <p>Amra Sabai, Mandalpara, Puratanpally, Khudirampally Mandir & New Town.</p>
+              </div>
+              <div class="curated-meta">
+                <span>5 Stops</span>
+                <span>~2.2 km · 1h 50m</span>
+              </div>
+            </div>
+            <div class="curated-card" data-preset="milanpally">
+              <div>
+                <div class="curated-badge">EVENING LOOP</div>
+                <h3>Milanpally & Majid Loop</h3>
+                <p>Milanpally Mandir, Mukti Sangha, Agragami, Choprajhar & Ram Krishna Pally.</p>
+              </div>
+              <div class="curated-meta">
+                <span>5 Stops</span>
+                <span>~2.6 km · 2h 00m</span>
+              </div>
+            </div>
+            <div class="curated-card" data-preset="express">
+              <div>
+                <div class="curated-badge">ALL-ROUNDER</div>
+                <h3>Grand Islampur Express</h3>
+                <p>Cross-town showcase covering major high-energy pandals in town.</p>
+              </div>
+              <div class="curated-meta">
+                <span>6 Stops</span>
+                <span>~3.4 km · 2h 20m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Route Dashboard -->
+        <div class="route-dashboard">
+          <div class="route-stats">
+            <div class="stat-item">
+              <span class="stat-val" id="routeStopCount">0</span>
+              <span class="stat-lbl">Stops Planned</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" id="routeTotalDist">0 km</span>
+              <span class="stat-lbl">Total Distance</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" id="routeEstTime">0 min</span>
+              <span class="stat-lbl">Est. Hopping Time</span>
+            </div>
+          </div>
+          <div class="route-actions-group">
+            <button class="button button-ghost" id="btnClearRoute">✕ Clear Route</button>
+            <button class="button button-gold" id="btnShareRoute">📋 Share Route</button>
+            <button class="button button-primary" id="btnOpenGoogleMapsRoute">
+              <span>🚀</span> Open Multi-Stop in Google Maps ↗
+            </button>
+          </div>
+        </div>
+
+        <!-- Route Workspace -->
+        <div class="route-workspace">
+          <!-- Left: Ordered Stops -->
+          <div class="workspace-panel">
+            <div class="panel-header">
+              <h3>Your Itinerary Sequence</h3>
+              <span style="font-size:11px; color:var(--muted);">Use ▲ ▼ to reorder</span>
+            </div>
+            <div class="stops-list" id="routeStopsList"></div>
+          </div>
+
+          <!-- Right: Available Pandals to Add -->
+          <div class="workspace-panel">
+            <div class="panel-header">
+              <h3>Add Pandals to Itinerary</h3>
+              <span style="font-size:11px; color:var(--muted);">Tap + to include</span>
+            </div>
+            <div class="available-pandals-list" id="availablePandalsList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <a class="brand footer-brand" href="#home" data-page="home">
+        <span class="brand-mark puja-logo-mark" aria-hidden="true">
+          <svg class="puja-logo-svg" viewBox="0 0 44 44" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="durgaGlowFooter" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ea4d3d"/>
+                <stop offset="70%" stop-color="#be281b"/>
+                <stop offset="100%" stop-color="#8a1710"/>
+              </radialGradient>
+            </defs>
+            <circle cx="22" cy="22" r="21" fill="url(#durgaGlowFooter)" stroke="#f6d997" stroke-width="1.8"/>
+            <circle cx="22" cy="22" r="19" stroke="#f6d997" stroke-width="0.6" stroke-dasharray="2 2" fill="none"/>
+            <path d="M22 4 L22 13 M18 8 C18 11.5 22 13 22 13 C22 13 26 11.5 26 8" stroke="#ffe7ad" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <ellipse cx="22" cy="14" rx="2.2" ry="4" fill="#f8da8c"/>
+            <circle cx="22" cy="14" r="1.1" fill="#8a1710"/>
+            <path d="M7 23.5 C12.5 18 19 22.5 20.5 24 C18.5 27 12 28.5 7 23.5 Z" fill="#ffffff"/>
+            <circle cx="14.5" cy="23.8" r="2.8" fill="#1b0f23"/>
+            <circle cx="15.2" cy="23" r="1" fill="#ffffff"/>
+            <path d="M37 23.5 C31.5 18 25 22.5 23.5 24 C25.5 27 32 28.5 37 23.5 Z" fill="#ffffff"/>
+            <circle cx="29.5" cy="23.8" r="2.8" fill="#1b0f23"/>
+            <circle cx="28.8" cy="23" r="1" fill="#ffffff"/>
+            <circle cx="22" cy="21" r="2" fill="#ffe7ad"/>
+            <circle cx="20" cy="30" r="4.2" stroke="#f8da8c" stroke-width="1.2" fill="none"/>
+            <circle cx="16" cy="31" r="1.3" fill="#ffffff"/>
+          </svg>
+        </span>
+        <span class="brand-text-block">
+          <span class="brand-title">ISLAMPUR <span class="brand-accent">PUJOPARIKRAMA</span></span>
+          <span class="brand-sub">ইসলামপুর দুর্গাপূজা পরিক্রমা · 733202</span>
+        </span>
+      </a>
+      <div class="footer-sharod-greet">
+        <span class="greet-bengali">শুভ শারদীয়া</span>
+        <span class="greet-sub">Shubho Sharodiya 2026 · Celebrations Across Islampur</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-dev-credit">
+        <span class="credit-label">Design &amp; Developed by</span>
+        <a class="credit-author" href="https://pankajportfolioo.vercel.app/" target="_blank" rel="noopener">
+          Pankaj Singha <span class="credit-heart">♥</span>
+        </a>
+      </div>
+      <div class="footer-rights">
+        <span>© 2026 Islampur PujoParikrama · Built with pride for our town</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Tab Navigation -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="#home" class="mobile-nav-link active" data-page="home">
+      <span class="m-icon">✦</span>
+      <span>Home</span>
+    </a>
+    <a href="#map" class="mobile-nav-link" data-page="map">
+      <span class="m-icon">🗺️</span>
+      <span>Map</span>
+    </a>
+    <a href="#near-me" class="mobile-nav-link" data-page="near-me">
+      <span class="m-icon">📍</span>
+      <span>Near Me</span>
+    </a>
+    <a href="#route" class="mobile-nav-link" data-page="route">
+      <span class="m-icon">🚶</span>
+      <span>Route</span>
+      <span class="route-badge-count mobile-badge" id="mobileRouteCount">0</span>
+    </a>
+  </nav>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="./script.js"></script>
+</body>
+</html>

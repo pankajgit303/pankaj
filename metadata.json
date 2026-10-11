@@ -1,0 +1,8 @@
+{
+  "name": "Islampur Pujo Hoppers",
+  "description": "Islampur PujoParikrama - Discover Durga Puja pandals in Islampur, Uttar Dinajpur. Made by Pankaj Singha (https://pankajportfolioo.vercel.app/).",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
