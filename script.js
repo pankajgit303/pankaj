@@ -338,6 +338,8 @@ let userLocation = { ...LANDMARKS.kmc, isGPS: false };
 let selectedRouteIds = JSON.parse(localStorage.getItem("islampur_route_stops") || "[1, 12, 8, 20]");
 let leafletMap = null;
 let mapMarkers = [];
+let userLocationMarker = null;
+let userAccuracyCircle = null;
 let activeMapFilter = "all";
 let activeNearDistanceFilter = "all";
 
@@ -494,8 +496,15 @@ function initOrRefreshMap() {
     }).addTo(leafletMap);
 
     renderMapMarkers();
+
+    if (userLocation.isGPS) {
+      updateUserLocationOnMap(userLocation.lat, userLocation.lng, userLocation.accuracy || 20, false);
+    }
   } else if (leafletMap) {
     leafletMap.invalidateSize();
+    if (userLocation.isGPS) {
+      updateUserLocationOnMap(userLocation.lat, userLocation.lng, userLocation.accuracy || 20, false);
+    }
   }
 }
 
@@ -672,47 +681,171 @@ function renderNearMeList() {
   }).join("");
 }
 
-function handleGpsLocate() {
-  const badge = document.getElementById("locationBadge");
+function updateUserLocationOnMap(lat, lng, accuracy = 20, panToUser = true) {
+  if (!leafletMap || typeof L === "undefined") return;
+
+  // Find nearest pandal to current coordinates
+  let nearestPandal = null;
+  let nearestDist = Infinity;
+  PANDALS_DATA.forEach(p => {
+    const d = calculateDistanceKm(lat, lng, p.lat, p.lng);
+    if (d < nearestDist) {
+      nearestDist = d;
+      nearestPandal = p;
+    }
+  });
+
+  const customUserIcon = L.divIcon({
+    className: "custom-user-gps-icon",
+    html: `
+      <div class="user-gps-beacon">
+        <div class="gps-ripple"></div>
+        <div class="gps-dot"></div>
+      </div>
+    `,
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
+    popupAnchor: [0, -14]
+  });
+
+  const popupHtml = `
+    <div class="user-gps-popup">
+      <div class="user-gps-popup-title">📍 Your Live Position</div>
+      <div class="user-gps-popup-acc">GPS Accuracy: ±${Math.round(accuracy)}m</div>
+      ${nearestPandal ? `
+        <div class="user-gps-nearest-box">
+          <b>Nearest Pandal:</b><br>
+          ${nearestPandal.name}<br>
+          <span style="color:#2e7d32; font-weight:700;">${formatDistance(nearestDist)} away</span> (~${estimateWalkTime(nearestDist)} walk)
+        </div>
+        <button class="popup-btn popup-btn-primary" style="width:100%;" onclick="focusMapOnPandal(${nearestPandal.id})">
+          Zoom to ${nearestPandal.name} ↗
+        </button>
+      ` : ''}
+    </div>
+  `;
+
+  if (userLocationMarker) {
+    userLocationMarker.setLatLng([lat, lng]);
+    userLocationMarker.setPopupContent(popupHtml);
+  } else {
+    userLocationMarker = L.marker([lat, lng], {
+      icon: customUserIcon,
+      zIndexOffset: 1200
+    }).bindPopup(popupHtml).addTo(leafletMap);
+  }
+
+  if (userAccuracyCircle) {
+    userAccuracyCircle.setLatLng([lat, lng]);
+    userAccuracyCircle.setRadius(Math.max(accuracy, 15));
+  } else {
+    userAccuracyCircle = L.circle([lat, lng], {
+      radius: Math.max(accuracy, 15),
+      color: "#1976d2",
+      fillColor: "#1976d2",
+      fillOpacity: 0.12,
+      weight: 1.5
+    }).addTo(leafletMap);
+  }
+
+  if (panToUser) {
+    leafletMap.flyTo([lat, lng], 16, { animate: true, duration: 1.2 });
+    setTimeout(() => {
+      if (userLocationMarker) userLocationMarker.openPopup();
+    }, 1250);
+  }
+
+  // Update on-map live banner
+  const banner = document.getElementById("mapGpsBanner");
+  const bannerText = document.getElementById("mapGpsBannerText");
+  if (banner && bannerText) {
+    banner.hidden = false;
+    bannerText.innerHTML = `<b>GPS Active:</b> Located on map (±${Math.round(accuracy)}m) ${nearestPandal ? `· Nearest: <b>${nearestPandal.name}</b> (${formatDistance(nearestDist)})` : ''}`;
+  }
+}
+
+function closeMapGpsBanner() {
+  const banner = document.getElementById("mapGpsBanner");
+  if (banner) banner.hidden = true;
+}
+
+function locateUserOnMap(panToUser = true) {
+  const mapLocateBtn = document.getElementById("btnMapLocate");
+  const floatBtn = document.getElementById("mapFloatGpsBtn");
+
   if (!navigator.geolocation) {
     showToast("Geolocation is not supported by your browser");
     return;
   }
 
-  if (badge) {
-    badge.innerHTML = `<span class="dot" style="background:#e9b65c;"></span> Detecting GPS location...`;
+  if (mapLocateBtn) {
+    mapLocateBtn.innerHTML = `<span>⏳</span> Locating...`;
+    mapLocateBtn.style.opacity = "0.75";
+  }
+  if (floatBtn) {
+    floatBtn.classList.add("locating");
   }
 
   navigator.geolocation.getCurrentPosition(
     position => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      const accuracy = position.coords.accuracy || 20;
+
       userLocation = {
         name: "My Live GPS Location",
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
+        lat,
+        lng,
+        accuracy,
         isGPS: true
       };
-      if (badge) {
-        badge.innerHTML = `<span class="dot" style="background:#2e7d32;"></span> GPS Active (${userLocation.lat.toFixed(3)}, ${userLocation.lng.toFixed(3)})`;
+
+      if (mapLocateBtn) {
+        mapLocateBtn.innerHTML = `<span>✓</span> Located (GPS)`;
+        mapLocateBtn.style.opacity = "1";
       }
-      // Uncheck preset chips
+      if (floatBtn) {
+        floatBtn.classList.remove("locating");
+      }
+
+      // Plot & center on Leaflet map
+      updateUserLocationOnMap(lat, lng, accuracy, panToUser);
+
+      // Also sync Near Me page
+      const badge = document.getElementById("locationBadge");
+      if (badge) {
+        badge.innerHTML = `<span class="dot" style="background:#2e7d32;"></span> GPS Active (${lat.toFixed(3)}, ${lng.toFixed(3)})`;
+      }
       document.querySelectorAll(".chip-btn").forEach(btn => btn.classList.remove("active"));
-      showToast("Location updated! Showing pandals near you.");
       renderNearMeList();
 
-      // If map is open, drop user pin
-      if (leafletMap) {
-        leafletMap.setView([userLocation.lat, userLocation.lng], 15);
-      }
+      showToast("📍 Current GPS position located on map!");
     },
     error => {
       console.warn("GPS error:", error);
-      showToast("Unable to fetch GPS. Defaulting to KMC More, Islampur.");
-      if (badge) {
-        badge.innerHTML = `<span class="dot"></span> Simulating from KMC More`;
+      if (mapLocateBtn) {
+        mapLocateBtn.innerHTML = `<span>📍</span> Locate Me (GPS)`;
+        mapLocateBtn.style.opacity = "1";
       }
+      if (floatBtn) {
+        floatBtn.classList.remove("locating");
+      }
+
+      let errorMsg = "Unable to fetch GPS. Showing Islampur central view.";
+      if (error.code === 1) {
+        errorMsg = "Location access was denied. Please allow location permissions in your browser.";
+      }
+      showToast(errorMsg);
+
+      // Default fallback marker for testing in restricted environments
+      updateUserLocationOnMap(26.2644, 88.1901, 35, panToUser);
     },
-    { enableHighAccuracy: true, timeout: 8000 }
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
   );
+}
+
+function handleGpsLocate() {
+  locateUserOnMap(false);
 }
 
 // ==========================================
@@ -864,7 +997,7 @@ function shareRouteSummary() {
     return `${i + 1}. ${p ? p.name : 'Stop ' + id}`;
   });
 
-  const text = `🌸 My Islampur Pujo Hoppers Itinerary (${selectedRouteIds.length} stops):\n${selectedPandals.join("\n")}\n\nExplore and plan your route on Islampur Pujo Hoppers!`;
+  const text = `🌸 My Islampur PujoParikrama Itinerary (${selectedRouteIds.length} stops):\n${selectedPandals.join("\n")}\n\nPlan your Durga Puja route on Islampur PujoParikrama (Made by Pankaj Singha: https://pankajportfolioo.vercel.app/)!`;
 
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(() => {
@@ -983,10 +1116,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const mapLocateBtn = document.getElementById("btnMapLocate");
   if (mapLocateBtn) {
     mapLocateBtn.addEventListener("click", () => {
-      handleGpsLocate();
-      if (leafletMap) {
-        leafletMap.setView([userLocation.lat, userLocation.lng], 16);
-      }
+      locateUserOnMap(true);
+    });
+  }
+
+  const mapFloatBtn = document.getElementById("mapFloatGpsBtn");
+  if (mapFloatBtn) {
+    mapFloatBtn.addEventListener("click", () => {
+      locateUserOnMap(true);
     });
   }
 
@@ -1027,3 +1164,5 @@ window.focusMapOnPandal = focusMapOnPandal;
 window.reorderStop = reorderStop;
 window.navigateToPage = navigateToPage;
 window.loadPresetRoute = loadPresetRoute;
+window.locateUserOnMap = locateUserOnMap;
+window.closeMapGpsBanner = closeMapGpsBanner;
