@@ -342,8 +342,11 @@ let userLocationMarker = null;
 let userAccuracyCircle = null;
 let activeMapFilter = "all";
 let activeNearDistanceFilter = "all";
+<<<<<<< HEAD
 let gpsWatchId = null;    // watchPosition continuous tracking ID
 let gpsFirstFix = true;   // fly-to map only on first GPS fix
+=======
+>>>>>>> origin/main
 
 // Distance Calculator using Haversine formula
 function calculateDistanceKm(lat1, lon1, lat2, lon2) {
@@ -771,6 +774,7 @@ function closeMapGpsBanner() {
   if (banner) banner.hidden = true;
 }
 
+<<<<<<< HEAD
 
 // ==========================================
 // GPS / Live Location
@@ -945,6 +949,87 @@ function handleGpsLocate() {
 
 
 
+=======
+function locateUserOnMap(panToUser = true) {
+  const mapLocateBtn = document.getElementById("btnMapLocate");
+  const floatBtn = document.getElementById("mapFloatGpsBtn");
+
+  if (!navigator.geolocation) {
+    showToast("Geolocation is not supported by your browser");
+    return;
+  }
+
+  if (mapLocateBtn) {
+    mapLocateBtn.innerHTML = `<span>⏳</span> Locating...`;
+    mapLocateBtn.style.opacity = "0.75";
+  }
+  if (floatBtn) {
+    floatBtn.classList.add("locating");
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      const accuracy = position.coords.accuracy || 20;
+
+      userLocation = {
+        name: "My Live GPS Location",
+        lat,
+        lng,
+        accuracy,
+        isGPS: true
+      };
+
+      if (mapLocateBtn) {
+        mapLocateBtn.innerHTML = `<span>✓</span> Located (GPS)`;
+        mapLocateBtn.style.opacity = "1";
+      }
+      if (floatBtn) {
+        floatBtn.classList.remove("locating");
+      }
+
+      // Plot & center on Leaflet map
+      updateUserLocationOnMap(lat, lng, accuracy, panToUser);
+
+      // Also sync Near Me page
+      const badge = document.getElementById("locationBadge");
+      if (badge) {
+        badge.innerHTML = `<span class="dot" style="background:#2e7d32;"></span> GPS Active (${lat.toFixed(3)}, ${lng.toFixed(3)})`;
+      }
+      document.querySelectorAll(".chip-btn").forEach(btn => btn.classList.remove("active"));
+      renderNearMeList();
+
+      showToast("📍 Current GPS position located on map!");
+    },
+    error => {
+      console.warn("GPS error:", error);
+      if (mapLocateBtn) {
+        mapLocateBtn.innerHTML = `<span>📍</span> Locate Me (GPS)`;
+        mapLocateBtn.style.opacity = "1";
+      }
+      if (floatBtn) {
+        floatBtn.classList.remove("locating");
+      }
+
+      let errorMsg = "Unable to fetch GPS. Showing Islampur central view.";
+      if (error.code === 1) {
+        errorMsg = "Location access was denied. Please allow location permissions in your browser.";
+      }
+      showToast(errorMsg);
+
+      // Default fallback marker for testing in restricted environments
+      updateUserLocationOnMap(26.2644, 88.1901, 35, panToUser);
+    },
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+  );
+}
+
+function handleGpsLocate() {
+  locateUserOnMap(false);
+}
+
+>>>>>>> origin/main
 // ==========================================
 // Route Page Implementation
 // ==========================================
@@ -1206,6 +1291,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+<<<<<<< HEAD
   // GPS Locate Button (Near Me page)
   const gpsBtn = document.getElementById("btnGpsLocate");
   if (gpsBtn) gpsBtn.addEventListener("click", toggleGps);
@@ -1213,11 +1299,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const mapLocateBtn = document.getElementById("btnMapLocate");
   if (mapLocateBtn) {
     mapLocateBtn.addEventListener("click", toggleGps);
+=======
+  // GPS Locate Button
+  const gpsBtn = document.getElementById("btnGpsLocate");
+  if (gpsBtn) gpsBtn.addEventListener("click", handleGpsLocate);
+
+  const mapLocateBtn = document.getElementById("btnMapLocate");
+  if (mapLocateBtn) {
+    mapLocateBtn.addEventListener("click", () => {
+      locateUserOnMap(true);
+    });
+>>>>>>> origin/main
   }
 
   const mapFloatBtn = document.getElementById("mapFloatGpsBtn");
   if (mapFloatBtn) {
+<<<<<<< HEAD
     mapFloatBtn.addEventListener("click", toggleGps);
+=======
+    mapFloatBtn.addEventListener("click", () => {
+      locateUserOnMap(true);
+    });
+>>>>>>> origin/main
   }
 
   // Reset Map View
@@ -1263,3 +1366,6 @@ window.startGpsWatch = startGpsWatch;
 window.stopGpsWatch = stopGpsWatch;
 window.closeMapGpsBanner = closeMapGpsBanner;
 
+=======
+window.closeMapGpsBanner = closeMapGpsBanner;
+>>>>>>> origin/main
