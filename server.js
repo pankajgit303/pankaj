@@ -11,6 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 function getAssetPath(filename) {
+  const pPublic = path.join(rootDir, 'public', filename);
+  if (fs.existsSync(pPublic)) return pPublic;
   const pDist = path.join(rootDir, 'dist', filename);
   if (fs.existsSync(pDist)) return pDist;
   const pRoot = path.join(rootDir, filename);
@@ -20,6 +22,7 @@ function getAssetPath(filename) {
   return pRoot;
 }
 
+app.use(express.static(path.join(rootDir, 'public')));
 app.use(express.static(path.join(rootDir, 'dist')));
 app.use(express.static(rootDir));
 app.use(express.static(__dirname));
