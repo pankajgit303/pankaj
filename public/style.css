@@ -2396,6 +2396,6 @@ a {
 }
 
 /* Locally hosted, unique Maa Durga artwork for every destination. */
-.pandal-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 38%; }
+.pandal-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; background:#171717; }
 .card-art::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.42),transparent 35%,transparent 65%,rgba(0,0,0,.65)); pointer-events:none; }
 .card-art .card-number, .card-art .card-tag, .card-art .card-art-label { z-index:1; }
