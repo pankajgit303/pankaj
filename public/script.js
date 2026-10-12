@@ -332,6 +332,37 @@ const PRESET_ROUTES = {
   }
 };
 
+// One coordinate-based destination for cards, map popups and navigation.
+// Always use coordinates from PANDALS_DATA so Directions cannot drift from
+// the selected card or accidentally reuse a stale hard-coded HTML link.
+function getPandalDirectionsUrl(pandal) {
+  const { lat, lng } = pandal;
+  if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
+    throw new Error(`Invalid coordinates for ${pandal.name}`);
+  }
+  const params = new URLSearchParams({
+    api: "1",
+    destination: `${lat.toFixed(6)},${lng.toFixed(6)}`,
+    travelmode: "driving",
+    dir_action: "navigate"
+  });
+  if (pandal.placeId) params.set("destination_place_id", pandal.placeId);
+  return `https://www.google.com/maps/dir/?${params}`;
+}
+
+function refreshCardDirectionLinks() {
+  document.querySelectorAll(".pandal-card[data-pandal-id]").forEach(card => {
+    const pandal = PANDALS_DATA.find(p => p.id === Number(card.dataset.pandalId));
+    const directions = card.querySelector(".card-footer a");
+    if (!pandal || !directions) return;
+
+    directions.href = getPandalDirectionsUrl(pandal);
+    directions.dataset.pandalId = String(pandal.id);
+    directions.setAttribute("aria-label", `Open Google Maps directions to ${pandal.name}`);
+    directions.setAttribute("title", `Directions to ${pandal.name}`);
+  });
+}
+
 // Global App State
 let activePage = "home";
 let userLocation = { ...LANDMARKS.kmc, isGPS: false };
@@ -554,7 +585,7 @@ function renderMapMarkers() {
         <h4 class="popup-title">${p.name}</h4>
         <div class="popup-loc">📍 ${p.neighbourhood}</div>
         <div class="popup-actions">
-          <a class="popup-btn popup-btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ' Islampur')}">Directions ↗</a>
+          <a class="popup-btn popup-btn-primary" target="_blank" rel="noopener" href="${getPandalDirectionsUrl(p)}">Directions ↗</a>
           <button class="popup-btn popup-btn-secondary" onclick="togglePandalInRoute(${p.id})">Add to Route</button>
         </div>
       </div>
@@ -681,7 +712,7 @@ function renderNearMeList() {
         </div>
         <div class="near-actions">
           <button class="button button-ghost" style="padding:10px 14px; font-size:11px; color:var(--ink); border-color:#d7cbbf;" onclick="focusMapOnPandal(${p.id})">Map 📍</button>
-          <a class="button button-primary" style="padding:10px 14px; font-size:11px;" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&query=${encodeURIComponent(p.name + ' Islampur')}">Directions ↗</a>
+          <a class="button button-primary" style="padding:10px 14px; font-size:11px;" target="_blank" rel="noopener" href="${getPandalDirectionsUrl(p)}">Directions ↗</a>
           <button class="button button-gold btn-toggle-route ${inRoute ? 'in-route' : ''}" style="padding:10px 14px; font-size:11px;" data-id="${p.id}" onclick="togglePandalInRoute(${p.id})">
             ${inRoute ? '✓ In Route' : '+ Add Route'}
           </button>
@@ -1094,21 +1125,17 @@ function openRouteInGoogleMaps() {
 
   if (selectedPandals.length === 1) {
     const p = selectedPandals[0];
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&query=${encodeURIComponent(p.name + ' Islampur')}`, "_blank");
+    window.open(getPandalDirectionsUrl(p), "_blank", "noopener,noreferrer");
     return;
   }
 
   const origin = `${selectedPandals[0].lat},${selectedPandals[0].lng}`;
   const destination = `${selectedPandals[selectedPandals.length - 1].lat},${selectedPandals[selectedPandals.length - 1].lng}`;
 
-  let waypointsParam = "";
-  if (selectedPandals.length > 2) {
-    const waypoints = selectedPandals.slice(1, selectedPandals.length - 1).map(p => `${p.lat},${p.lng}`);
-    waypointsParam = `&waypoints=${waypoints.join("|")}`;
-  }
-
-  const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}${waypointsParam}&travelmode=driving`;
-  window.open(url, "_blank");
+  const params = new URLSearchParams({ api: "1", origin, destination, travelmode: "driving" });
+  if (selectedPandals.length > 2) params.set("waypoints", selectedPandals.slice(1, -1).map(p => `${p.lat},${p.lng}`).join("|"));
+  const url = `https://www.google.com/maps/dir/?${params}`;
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 function shareRouteSummary() {
@@ -1172,6 +1199,7 @@ function filterHomePandals() {
 // Initialization & Event Binding
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
+  refreshCardDirectionLinks();
   // Hash routing
   const initialHash = window.location.hash.replace("#", "") || "home";
   navigateToPage(initialHash);
