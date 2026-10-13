@@ -2347,9 +2347,10 @@ a {
   .mobile-nav {
     display: flex;
   }
-  /* Mobile View: Hero shows only divine Maa Durga image with dhoop smoke animation */
   .hero-content {
-    display: none !important;
+    display: block;
+    min-width: 0;
+    width: 100%;
   }
   .hero-bottom {
     display: none !important;
@@ -2428,3 +2429,75 @@ a {
 .pandal-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; }
 .card-art::after { content:none; }
 .card-art .card-number, .card-art .card-tag, .card-art .card-art-label { display:none; }
+
+/* Phone layouts and touch controls. */
+@media (max-width: 768px) {
+  html { scroll-padding-top: 80px; }
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .site-header { height: auto; min-height: 70px; padding: 10px 16px; gap: 10px; }
+  .brand, .brand-text-block { min-width: 0; }
+  .brand { gap: 8px; }
+  .brand-mark { flex-shrink: 0; }
+  .brand-title { font-size: 12px; line-height: 1.35; letter-spacing: 0; }
+  .brand-accent { display: block; }
+  .brand-sub { font-size: 9px; line-height: 1.5; letter-spacing: 0; }
+  .header-cta { flex-shrink: 0; min-height: 44px; padding: 10px; }
+  .topline { font-size: 9px; letter-spacing: 0.5px; }
+  .hero { gap: 24px; overflow: hidden; }
+  .hero h1 { font-size: 34px; line-height: 1.15; letter-spacing: 0; }
+  .hero-content p { font-size: 14px; max-width: 100%; }
+  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .hero-content > *, .hero-durga-showcase { max-width: 100%; }
+  .durga-portrait-frame { width: min(275px, 100%); height: auto; aspect-ratio: 275 / 390; }
+  .section, .page-container { padding: 32px 16px; }
+  .section-heading { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
+  .section-heading h2, .page-header h1, .about-section h2 { font-size: 28px; line-height: 1.2; letter-spacing: 0; }
+  .search-row { flex-direction: column; }
+  .search-box, .filter-select { width: 100%; min-width: 0; }
+  .search-box input, .filter-select { font-size: 16px; min-width: 0; }
+  .results-meta { flex-wrap: wrap; gap: 8px; }
+  .pandal-grid, .map-pandal-list, .curated-grid, .route-workspace { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .pandal-card, .workspace-panel, .mini-pandal-card, .curated-card { min-width: 0; }
+  .card-art { height: auto; aspect-ratio: 3 / 2; }
+  .card-body { padding: 18px; }
+  .card-body h3, .near-title, .avail-info h5, .stop-details h4 { overflow-wrap: anywhere; }
+  .card-actions-bar, .mini-card-actions, .near-actions { flex-wrap: wrap; }
+  .btn-card-action, .popup-btn, .filter-pill, .chip-btn, .header-cta { min-height: 44px; }
+  .card-footer { flex-wrap: wrap; gap: 8px; }
+  .card-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+  .map-toolbar, .map-tools, .distance-filter-pills { flex-wrap: wrap; }
+  .map-tools { width: 100%; }
+  #leaflet-map { height: 380px; height: clamp(280px, 55svh, 460px); }
+  .drawer-header, .panel-header { flex-wrap: wrap; gap: 10px; }
+  .radar-hero, .landmark-selector-box, .route-dashboard, .workspace-panel { padding: 18px; }
+  .radar-info, .radar-action, .near-main { min-width: 0; max-width: 100%; }
+  .near-card { padding: 16px; gap: 12px; grid-template-columns: 60px minmax(0, 1fr); }
+  .near-actions > * { flex: 1; }
+  .location-status-badge { max-width: 100%; overflow-wrap: anywhere; }
+  .route-stats { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .stat-val { font-size: 24px; line-height: 1.2; }
+  .stat-lbl { letter-spacing: 0; }
+  .route-actions-group { width: 100%; }
+  .route-actions-group > * { flex: 1 1 100%; min-height: 44px; white-space: normal; }
+  .stop-item { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; padding: 12px; }
+  .stop-details h4 { white-space: normal; }
+  .stop-tools { grid-column: 2; flex-wrap: wrap; gap: 8px; }
+  .btn-icon { width: 44px; height: 44px; }
+  .available-item { gap: 10px; padding: 10px; }
+  .available-pandals-list { max-height: none; overflow: visible; padding-right: 0; }
+  .about-section { padding: 32px 16px; gap: 16px; }
+  .site-footer { padding: 28px 16px; }
+  .footer-top, .footer-bottom { justify-content: center; width: 100%; gap: 16px; }
+  .footer-dev-credit { flex-wrap: wrap; justify-content: center; }
+  .mobile-nav { height: calc(64px + env(safe-area-inset-bottom, 0px)); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .mobile-nav-link { flex: 1; min-width: 0; min-height: 48px; padding: 6px 4px; }
+  .toast-msg { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); left: 16px; right: 16px; width: auto; overflow-wrap: anywhere; }
+}
+
+@media (max-width: 360px) {
+  .site-header { flex-wrap: wrap; }
+  .hero h1 { font-size: 30px; }
+  .card-actions-bar { flex-direction: column; }
+  .available-item { flex-wrap: wrap; }
+  .available-item .avail-info { flex-basis: 100%; }
+}
