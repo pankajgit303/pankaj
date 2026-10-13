@@ -3,311 +3,365 @@
 // 27 Community Durga Pujas and Historic Mandirs in Islampur, Uttar Dinajpur
 const PANDALS_DATA = [
   {
-    id: 1,
-    name: "Islampur Kamal Memorial Club (KMC)",
-    area: "Town",
-    neighbourhood: "KMC More / Old Stationpally",
-    lat: 26.2672,
-    lng: 88.1915,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-1",
-    desc: "KMC More / Old Stationpally. Iconic town celebration with grand lighting and traditional idol."
+    "id": 1,
+    "name": "KMC Durga Puja Committee",
+    "area": "Town",
+    "neighbourhood": "KMC More / Old Stationpally",
+    "lat": 26.2649957,
+    "lng": 88.1924246,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-1",
+    "desc": "KMC More / Old Stationpally. Iconic town celebration with grand lighting and traditional idol.",
+    "mapsUrl": "https://maps.app.goo.gl/gek8Hi9rL4Cefkpb8",
+    "googleMapsName": "KMC Durga puja Committee"
   },
   {
-    id: 2,
-    name: "Deshbandhupara Adarsha Sangha",
-    area: "Deshbandhupara",
-    neighbourhood: "Shibdange Para West / Newtown Road",
-    lat: 26.2618,
-    lng: 88.1865,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-2",
-    desc: "Shibdange Para West / Newtown Road. Famous for creative pandal art and festive gathering."
+    "id": 2,
+    "name": "Deshbandhupara Adarsha Sangha",
+    "area": "Deshbandhupara",
+    "neighbourhood": "Shibdange Para West / Newtown Road",
+    "lat": 26.2549541,
+    "lng": 88.1827878,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-2",
+    "desc": "Shibdange Para West / Newtown Road. Famous for creative pandal art and festive gathering.",
+    "mapsUrl": "https://maps.app.goo.gl/ebeJXNY66yVLg5UE9",
+    "googleMapsName": "Deshbandhupara Adarsha Sangha"
   },
   {
-    id: 3,
-    name: "Mandalpara Durga Puja Committee",
-    area: "Khudirampally",
-    neighbourhood: "Mandal Para, Khudirampally",
-    lat: 26.2595,
-    lng: 88.1940,
-    tag: "LOCAL DISCOVERY",
-    artClass: "card-art-3",
-    desc: "Mandal Para, Khudirampally. Warm community atmosphere with cultural programs."
+    "id": 3,
+    "name": "Mandalpara Durga Puja Committee",
+    "area": "Khudirampally",
+    "neighbourhood": "Mandal Para, Khudirampally",
+    "lat": 26.2594592,
+    "lng": 88.1885809,
+    "tag": "LOCAL DISCOVERY",
+    "artClass": "card-art-3",
+    "desc": "Mandal Para, Khudirampally. Warm community atmosphere with cultural programs.",
+    "mapsUrl": "https://maps.app.goo.gl/6QB8ouqE3x4FAZjA6",
+    "googleMapsName": "Mandalpara Durga Puja committee"
   },
   {
-    id: 4,
-    name: "Puratanpally Durga Puja",
-    area: "Khudirampally",
-    neighbourhood: "Puratanpally, Khudirampally",
-    lat: 26.2582,
-    lng: 88.1952,
-    tag: "NEIGHBOURHOOD",
-    artClass: "card-art-4",
-    desc: "Puratanpally, Khudirampally. One of the classic neighbourhood pujas of the area."
+    "id": 4,
+    "name": "Puratanpally Durga Puja",
+    "area": "Khudirampally",
+    "neighbourhood": "Puratanpally, Khudirampally",
+    "lat": 26.2637901,
+    "lng": 88.1861877,
+    "tag": "NEIGHBOURHOOD",
+    "artClass": "card-art-4",
+    "desc": "Puratanpally, Khudirampally. One of the classic neighbourhood pujas of the area.",
+    "mapsUrl": "https://maps.app.goo.gl/iFZnakR1zXuNrUZF8",
+    "googleMapsName": "Puratanpally Durga puja"
   },
   {
-    id: 5,
-    name: "Amra Sabai Durgapuja Committee Puja Prangan",
-    area: "Khudirampally",
-    neighbourhood: "Khudirampally",
-    lat: 26.2608,
-    lng: 88.1965,
-    tag: "PUJO TRAIL",
-    artClass: "card-art-5",
-    desc: "Khudirampally. Vibrant community spirit, spectacular evening lighting, and cultural events."
+    "id": 5,
+    "name": "Amra Sabai Durgapuja Committee",
+    "area": "Khudirampally",
+    "neighbourhood": "Khudirampally",
+    "lat": 26.2635059,
+    "lng": 88.1829516,
+    "tag": "PUJO TRAIL",
+    "artClass": "card-art-5",
+    "desc": "Khudirampally. Vibrant community spirit, spectacular evening lighting, and cultural events.",
+    "mapsUrl": "https://maps.app.goo.gl/1WKeTBf9wY59fvw5A",
+    "googleMapsName": "Amra Sabai Durgapuja Committee Puja Prangan"
   },
   {
-    id: 6,
-    name: "Milanpally Durga Mandir",
-    area: "Milanpally",
-    neighbourhood: "Barhat, Islampur",
-    lat: 26.2715,
-    lng: 88.1880,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-6",
-    desc: "Barhat, Islampur. Historic Durga Mandir revered by devotees throughout the year."
+    "id": 6,
+    "name": "Milanpally Durga Mandir",
+    "area": "Milanpally",
+    "neighbourhood": "Barhat, Islampur",
+    "lat": 26.249327,
+    "lng": 88.1739514,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-6",
+    "desc": "Barhat, Islampur. Historic Durga Mandir revered by devotees throughout the year.",
+    "mapsUrl": "https://maps.app.goo.gl/U3K4FrwmTVF3m1L39",
+    "googleMapsName": "Milanpally Durga Mandir"
   },
   {
-    id: 7,
-    name: "Nandi Bari Durga Mandir",
-    area: "Majid Nagar",
-    neighbourhood: "Ram Krishna Pally, Majid Nagar",
-    lat: 26.2530,
-    lng: 88.1855,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-1",
-    desc: "Ram Krishna Pally, Majid Nagar. Traditional family temple welcoming all visitors."
+    "id": 7,
+    "name": "Nandi Bari Durga Mandir",
+    "area": "Majid Nagar",
+    "neighbourhood": "Ram Krishna Pally, Majid Nagar",
+    "lat": 26.2543746,
+    "lng": 88.189403,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-1",
+    "desc": "Ram Krishna Pally, Majid Nagar. Traditional family temple welcoming all visitors.",
+    "mapsUrl": "https://maps.app.goo.gl/vgt7C8y8c4BbzEgq9",
+    "googleMapsName": "Nandi Bari Durga mandir"
   },
   {
-    id: 8,
-    name: "Durga Mandir — Babupara",
-    area: "Town",
-    neighbourhood: "Babupara, Siliguri–Purnia Road",
-    lat: 26.2655,
-    lng: 88.1928,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-2",
-    desc: "Babupara, Siliguri–Purnia Road. Central location with steady footfall and serene bhog."
+    "id": 8,
+    "name": "Durga Mandir — Babupara",
+    "area": "Town",
+    "neighbourhood": "Babupara, Siliguri–Purnia Road",
+    "lat": 26.2689579,
+    "lng": 88.2004704,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-2",
+    "desc": "Babupara, Siliguri–Purnia Road. Central location with steady footfall and serene bhog.",
+    "mapsUrl": "https://maps.app.goo.gl/fSK3sNo6NvpyCQu28",
+    "googleMapsName": "Durga Mandir"
   },
   {
-    id: 9,
-    name: "Choprajhar Sarbojonin Durga Temple",
-    area: "Majid Nagar",
-    neighbourhood: "Majid Nagar, Islampur–Lodhan Road",
-    lat: 26.2505,
-    lng: 88.1820,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-3",
-    desc: "Majid Nagar, Islampur–Lodhan Road. Sarbojonin celebration with devotional ambiance."
+    "id": 9,
+    "name": "Choprajhar Sarbojonin Durga Temple",
+    "area": "Majid Nagar",
+    "neighbourhood": "Majid Nagar, Islampur–Lodhan Road",
+    "lat": 26.2505752,
+    "lng": 88.1902831,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-3",
+    "desc": "Majid Nagar, Islampur–Lodhan Road. Sarbojonin celebration with devotional ambiance.",
+    "mapsUrl": "https://maps.app.goo.gl/ZgAmnn99Bdrtwb6v5",
+    "googleMapsName": "Choprajhar Sarbojonin Durga Temple"
   },
   {
-    id: 10,
-    name: "Khudirampally Durga Mandir",
-    area: "Khudirampally",
-    neighbourhood: "Khudirampally",
-    lat: 26.2612,
-    lng: 88.1935,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-4",
-    desc: "Khudirampally. Cherished neighbourhood temple with timeless rituals."
+    "id": 10,
+    "name": "Khudirampally Durga Mandir",
+    "area": "Khudirampally",
+    "neighbourhood": "Khudirampally",
+    "lat": 26.2611854,
+    "lng": 88.184361,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-4",
+    "desc": "Khudirampally. Cherished neighbourhood temple with timeless rituals.",
+    "mapsUrl": "https://maps.app.goo.gl/vBa6xxznTmk7Y539A",
+    "googleMapsName": "Kshudirampally Durga Mandir"
   },
   {
-    id: 11,
-    name: "Paul Bari Durga Mandir",
-    area: "Deshbandhupara",
-    neighbourhood: "Shibdange Para West",
-    lat: 26.2625,
-    lng: 88.1850,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-5",
-    desc: "Shibdange Para West. Traditional family mandir puja preserved over decades."
+    "id": 11,
+    "name": "Paul Bari Durga Mandir",
+    "area": "Deshbandhupara",
+    "neighbourhood": "Shibdange Para West",
+    "lat": 26.2532766,
+    "lng": 88.1795257,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-5",
+    "desc": "Shibdange Para West. Traditional family mandir puja preserved over decades.",
+    "mapsUrl": "https://maps.app.goo.gl/W8ZiSQfnpxhf57JfA",
+    "googleMapsName": "Paul Bari Durga Mandir"
   },
   {
-    id: 12,
-    name: "Sri Sri Sarbojonin Durga Mandir",
-    area: "Town",
-    neighbourhood: "Teenpool, Netaji Subhash Road",
-    lat: 26.2685,
-    lng: 88.1895,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-6",
-    desc: "Teenpool, Netaji Subhash Road. Bustling stop near the market with lively crowd."
+    "id": 12,
+    "name": "Sri Sri Sarbojonin Durga Mandir",
+    "area": "Town",
+    "neighbourhood": "Teenpool, Netaji Subhash Road",
+    "lat": 26.2590754,
+    "lng": 88.1903377,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-6",
+    "desc": "Teenpool, Netaji Subhash Road. Bustling stop near the market with lively crowd.",
+    "mapsUrl": "https://maps.app.goo.gl/G3rrfFnRfeRoTc5U6",
+    "googleMapsName": "Sri Sri Sarbojonin Durga Mandir"
   },
   {
-    id: 13,
-    name: "Ram Krishna Pally Durga Mandir",
-    area: "Majid Nagar",
-    neighbourhood: "Ram Krishna Pally, Majid Nagar",
-    lat: 26.2542,
-    lng: 88.1868,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-1",
-    desc: "Ram Krishna Pally, Majid Nagar. Warm local committee puja with festive sound of dhak."
+    "id": 13,
+    "name": "Ram Krishna Pally Durga Mandir",
+    "area": "Majid Nagar",
+    "neighbourhood": "Ram Krishna Pally, Majid Nagar",
+    "lat": 26.2538332,
+    "lng": 88.1887786,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-1",
+    "desc": "Ram Krishna Pally, Majid Nagar. Warm local committee puja with festive sound of dhak.",
+    "mapsUrl": "https://maps.app.goo.gl/3a8L3AgzKQYALE7CA",
+    "googleMapsName": "Ram Krishna pally Durga Mandir"
   },
   {
-    id: 14,
-    name: "Adi Maa Durga Temple",
-    area: "Town",
-    neighbourhood: "Narayanpur, Islampur",
-    lat: 26.2730,
-    lng: 88.1945,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-2",
-    desc: "Narayanpur, Islampur. One of the oldest venerated mandirs in northern Islampur."
+    "id": 14,
+    "name": "Adi Maa Durga Temple",
+    "area": "Town",
+    "neighbourhood": "Narayanpur, Islampur",
+    "lat": 26.2665959,
+    "lng": 88.1906542,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-2",
+    "desc": "Narayanpur, Islampur. One of the oldest venerated mandirs in northern Islampur.",
+    "mapsUrl": "https://maps.app.goo.gl/cyYPCJWyjvecmiM79",
+    "googleMapsName": "Adi Maa Durga Temple"
   },
   {
-    id: 15,
-    name: "Ma Durga and Ma Kali Mandir",
-    area: "Town",
-    neighbourhood: "Molnapara, Lokenath Road",
-    lat: 26.2638,
-    lng: 88.1980,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-3",
-    desc: "Molnapara, Lokenath Road. Combined temple offering a spiritually rich experience."
+    "id": 15,
+    "name": "Ma Durga and Ma Kali Mandir",
+    "area": "Town",
+    "neighbourhood": "Molnapara, Lokenath Road",
+    "lat": 26.26299,
+    "lng": 88.1815235,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-3",
+    "desc": "Molnapara, Lokenath Road. Combined temple offering a spiritually rich experience.",
+    "mapsUrl": "https://maps.app.goo.gl/eJiuxWj5L6H87i9S7",
+    "googleMapsName": "Ma durga and ma Kali mandir"
   },
   {
-    id: 16,
-    name: "Durga Mandir — Bolhanja",
-    area: "Town",
-    neighbourhood: "Bolhanja, Patagora Road",
-    lat: 26.2760,
-    lng: 88.1840,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-4",
-    desc: "Bolhanja, Patagora Road. Peaceful stop on the Patagora corridor."
+    "id": 16,
+    "name": "Durga Mandir — Bolhanja",
+    "area": "Town",
+    "neighbourhood": "Bolhanja, Patagora Road",
+    "lat": 26.2600447,
+    "lng": 88.2117813,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-4",
+    "desc": "Bolhanja, Patagora Road. Peaceful stop on the Patagora corridor.",
+    "mapsUrl": "https://maps.app.goo.gl/BApGK97q57wLkFnv8",
+    "googleMapsName": "Durga mandir"
   },
   {
-    id: 17,
-    name: "Charkhamba Sarbajanin Durga Temple",
-    area: "Town",
-    neighbourhood: "Charkhamba, Islampur–Lodhan Road",
-    lat: 26.2480,
-    lng: 88.1790,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-5",
-    desc: "Charkhamba, Islampur–Lodhan Road. Deep-rooted celebration loved by nearby residents."
+    "id": 17,
+    "name": "Charkhamba Sarbajanin Durga Temple",
+    "area": "Town",
+    "neighbourhood": "Charkhamba, Islampur–Lodhan Road",
+    "lat": 26.2435425,
+    "lng": 88.1932525,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-5",
+    "desc": "Charkhamba, Islampur–Lodhan Road. Deep-rooted celebration loved by nearby residents.",
+    "mapsUrl": "https://maps.app.goo.gl/KZ11HWTZg461LsJF7",
+    "googleMapsName": "Charkhamba Sarbajanin Durga Temple"
   },
   {
-    id: 18,
-    name: "Shiv Kali Nav Durga Mandir",
-    area: "Town",
-    neighbourhood: "Durga Nagar, Siliguri–Purnia Road",
-    lat: 26.2690,
-    lng: 88.1970,
-    tag: "TEMPLE STOP",
-    artClass: "card-art-6",
-    desc: "Durga Nagar, Siliguri–Purnia Road. Prominent shrine featuring all nine avatars of Durga."
+    "id": 18,
+    "name": "Shiv Kali Nav Durga Mandir",
+    "area": "Town",
+    "neighbourhood": "Durga Nagar, Siliguri–Purnia Road",
+    "lat": 26.2738849,
+    "lng": 88.208501,
+    "tag": "TEMPLE STOP",
+    "artClass": "card-art-6",
+    "desc": "Durga Nagar, Siliguri–Purnia Road. Prominent shrine featuring all nine avatars of Durga.",
+    "mapsUrl": "https://maps.app.goo.gl/PrS9JgpnsBivS1iG7",
+    "googleMapsName": "Shiv Kali Nav Durga Mandir"
   },
   {
-    id: 19,
-    name: "Netajipally & Blockpara Sarbojonin Durga Puja Committee",
-    area: "Netajipally",
-    neighbourhood: "Netajipally",
-    lat: 26.2600,
-    lng: 88.1785,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-1",
-    desc: "Netajipally. Massive crowd favorite featuring artistic pandal concepts."
+    "id": 19,
+    "name": "Netajipally & Blockpara Sarbojonin Durga Puja",
+    "area": "Netajipally",
+    "neighbourhood": "Netajipally",
+    "lat": 26.251041,
+    "lng": 88.185897,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-1",
+    "desc": "Netajipally. Massive crowd favorite featuring artistic pandal concepts.",
+    "mapsUrl": "https://maps.app.goo.gl/VYF17siHVBy4rnFZA",
+    "googleMapsName": "Netaji Pally & Block Para Durga Pujo Committee"
   },
   {
-    id: 20,
-    name: "Royal Sporting Club",
-    area: "Town",
-    neighbourhood: "Thana Colony",
-    lat: 26.2660,
-    lng: 88.1860,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-2",
-    desc: "Thana Colony. Renowned for innovative illumination gates and cultural performances."
+    "id": 20,
+    "name": "Royal Sporting Club",
+    "area": "Town",
+    "neighbourhood": "Thana Colony",
+    "lat": 26.2580822,
+    "lng": 88.184052,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-2",
+    "desc": "Thana Colony. Renowned for innovative illumination gates and cultural performances.",
+    "mapsUrl": "https://maps.app.goo.gl/8StNLRVoekM8jxP68",
+    "googleMapsName": "Royal Sporting Club"
   },
   {
-    id: 21,
-    name: "Islampur Tarun Sangha",
-    area: "Town",
-    neighbourhood: "Power Housepara",
-    lat: 26.2640,
-    lng: 88.1830,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-3",
-    desc: "Power Housepara. Energetic youth club organizing grand celebrations and anjali."
+    "id": 21,
+    "name": "Islampur Tarun Sangha",
+    "area": "Town",
+    "neighbourhood": "Power Housepara",
+    "lat": 26.25011,
+    "lng": 88.191199,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-3",
+    "desc": "Power Housepara. Energetic youth club organizing grand celebrations and anjali.",
+    "mapsUrl": "https://maps.app.goo.gl/PJXe3KhjeMWXc2Nb7",
+    "googleMapsName": "Subhash Nagar Tarun Sangha"
   },
   {
-    id: 22,
-    name: "Agragami Sangha",
-    area: "Milanpally",
-    neighbourhood: "Milanpally",
-    lat: 26.2725,
-    lng: 88.1895,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-4",
-    desc: "Milanpally. Delightful local pandal with traditional dhunuchi naach and aarti."
+    "id": 28,
+    "name": "(Christian para/Natun Para) Durga Puja Committee",
+    "area": "Town",
+    "neighbourhood": "Christian para / Natun Para",
+    "lat": 26.2716077,
+    "lng": 88.1996772,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-4",
+    "desc": "Durga Puja at Christian para / Natun Para, Islampur.",
+    "mapsUrl": "https://maps.app.goo.gl/UMPL9zYSYW7Dsp6V6",
+    "googleMapsName": "(Christian para/Natun Para) Durga Puja Committe"
   },
   {
-    id: 23,
-    name: "Agrodoot Sangha",
-    area: "Town",
-    neighbourhood: "Collegemore",
-    lat: 26.2700,
-    lng: 88.1930,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-5",
-    desc: "Collegemore. Bustling crossroads venue with vibrant food stalls and lighting."
+    "id": 29,
+    "name": "ITS Durga Puja",
+    "area": "Town",
+    "neighbourhood": "Islampur",
+    "lat": 26.2545717,
+    "lng": 88.1808105,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-5",
+    "desc": "ITS Durga Puja. Open the supplied Google Maps location for directions.",
+    "mapsUrl": "https://maps.app.goo.gl/RqCBSbSMp77opVJL9",
+    "googleMapsName": "ITS Durga Puja Math"
   },
   {
-    id: 24,
-    name: "Ashrampara Durga Puja Committee",
-    area: "Town",
-    neighbourhood: "Ashrampara",
-    lat: 26.2678,
-    lng: 88.1840,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-6",
-    desc: "Ashrampara. Serene pandal with melodious stotras and traditional decoration."
+    "id": 30,
+    "name": "Islampur Bidrohi Durga Puja Committee",
+    "area": "Town",
+    "neighbourhood": "Islampur",
+    "lat": 26.2513504,
+    "lng": 88.1876035,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-6",
+    "desc": "Islampur Bidrohi Durga Puja Committee. Plan a visit using the Google Maps link.",
+    "mapsUrl": "https://maps.app.goo.gl/RBKQoLPnkERsJ5Nf6",
+    "googleMapsName": "Islampur bidrohi Durga Puja Committee"
   },
   {
-    id: 25,
-    name: "Mukti Sangha",
-    area: "Milanpally",
-    neighbourhood: "Milan Pally",
-    lat: 26.2708,
-    lng: 88.1872,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-1",
-    desc: "Milan Pally. Long-standing club famous for grand idol presentation and community bhog."
+    "id": 25,
+    "name": "Mukti Sangha",
+    "area": "Milanpally",
+    "neighbourhood": "Milan Pally",
+    "lat": 26.2554319,
+    "lng": 88.2009408,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-1",
+    "desc": "Milan Pally. Long-standing club famous for grand idol presentation and community bhog.",
+    "mapsUrl": "https://maps.app.goo.gl/p352HJgrBg9mG3wk8",
+    "googleMapsName": "MUKTI SANGHA CLUB"
   },
   {
-    id: 26,
-    name: "Netajee Sangha Durga Puja",
-    area: "Netajipally",
-    neighbourhood: "Islampur",
-    lat: 26.2588,
-    lng: 88.1770,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-2",
-    desc: "Netajipally, Islampur. Popular community landmark attracting hoppers from across town."
+    "id": 26,
+    "name": "Netajee Sangha Durga Puja",
+    "area": "Netajipally",
+    "neighbourhood": "Islampur",
+    "lat": 26.2580476,
+    "lng": 88.1864767,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-2",
+    "desc": "Netajipally, Islampur. Popular community landmark attracting hoppers from across town.",
+    "mapsUrl": "https://maps.app.goo.gl/vuggiaCb23VFnQnC9",
+    "googleMapsName": "Netaji Sangha Durga Puja Committee"
   },
   {
-    id: 27,
-    name: "New Town Durga Puja",
-    area: "Deshbandhupara",
-    neighbourhood: "New Town, Islampur",
-    lat: 26.2632,
-    lng: 88.1885,
-    tag: "COMMUNITY PUJO",
-    artClass: "card-art-3",
-    desc: "New Town, Islampur. Lively neighborhood celebration with warm hospitality."
+    "id": 31,
+    "name": "Dakshin Deshbandhupara Durga Puja",
+    "area": "Deshbandhupara",
+    "neighbourhood": "Dakshin Deshbandhupara",
+    "lat": 26.2525948,
+    "lng": 88.1833766,
+    "tag": "COMMUNITY PUJO",
+    "artClass": "card-art-3",
+    "desc": "Durga Puja at Dakshin Deshbandhupara, Islampur.",
+    "mapsUrl": "https://maps.app.goo.gl/vDKm5Nm5ef8N1nu6A",
+    "googleMapsName": "Dakshin Deshbandhupara Durga Puja"
   }
 ];
 
 // Landmark reference coordinates for simulated location
 const LANDMARKS = {
-  "kmc": { name: "KMC More", lat: 26.2672, lng: 88.1915 },
-  "teenpool": { name: "Teenpool / NS Road", lat: 26.2685, lng: 88.1895 },
+  "kmc": { name: "KMC More", lat: 26.2649957, lng: 88.1924246 },
+  "teenpool": { name: "Teenpool / NS Road", lat: 26.2590754, lng: 88.1903377 },
   "collegemore": { name: "Collegemore", lat: 26.2700, lng: 88.1930 },
   "khudirampally": { name: "Khudirampally More", lat: 26.2605, lng: 88.1950 },
-  "milanpally": { name: "Milanpally", lat: 26.2715, lng: 88.1880 },
+  "milanpally": { name: "Milanpally", lat: 26.249327, lng: 88.1739514 },
   "deshbandhupara": { name: "Deshbandhupara", lat: 26.2620, lng: 88.1860 },
   "majidnagar": { name: "Majid Nagar", lat: 26.2520, lng: 88.1840 }
 };
@@ -316,26 +370,25 @@ const LANDMARKS = {
 const PRESET_ROUTES = {
   heritage: {
     title: "Town Heritage Trail",
-    ids: [1, 12, 8, 20, 23]
+    ids: [1, 12, 8, 20, 29]
   },
   khudirampally: {
     title: "Khudirampally Circuit",
-    ids: [5, 3, 4, 10, 27]
+    ids: [5, 3, 4, 10, 31]
   },
   milanpally: {
     title: "Milanpally Loop",
-    ids: [6, 25, 22, 9, 13]
+    ids: [6, 25, 30, 9, 13]
   },
   express: {
     title: "Grand Islampur Express",
-    ids: [1, 23, 22, 2, 19, 5]
+    ids: [1, 29, 28, 2, 19, 5]
   }
 };
 
-// One coordinate-based destination for cards, map popups and navigation.
-// Always use coordinates from PANDALS_DATA so Directions cannot drift from
-// the selected card or accidentally reuse a stale hard-coded HTML link.
+// Keep the committee's supplied Maps link consistent across every view.
 function getPandalDirectionsUrl(pandal) {
+  if (pandal.mapsUrl) return pandal.mapsUrl;
   const { lat, lng } = pandal;
   if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
     throw new Error(`Invalid coordinates for ${pandal.name}`);
@@ -366,7 +419,18 @@ function refreshCardDirectionLinks() {
 // Global App State
 let activePage = "home";
 let userLocation = { ...LANDMARKS.kmc, isGPS: false };
-let selectedRouteIds = JSON.parse(localStorage.getItem("islampur_route_stops") || "[1, 12, 8, 20]");
+let selectedRouteIds = loadSavedRoute();
+
+function loadSavedRoute() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("islampur_route_stops") || "[1,12,8,20]");
+    return Array.isArray(saved)
+      ? [...new Set(saved)].filter(id => PANDALS_DATA.some(p => p.id === id))
+      : [1, 12, 8, 20];
+  } catch {
+    return [1, 12, 8, 20];
+  }
+}
 let leafletMap = null;
 let mapMarkers = [];
 let userLocationMarker = null;

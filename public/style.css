@@ -831,9 +831,34 @@ a {
   white-space: nowrap;
 }
 
-.ticker div {
+.ticker-track {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  animation: festival-marquee 30s linear infinite;
+}
+
+.ticker-message {
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  padding: 0 24px;
   word-spacing: 8px;
   text-align: center;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes festival-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; width: auto; min-width: 0; }
+  .ticker-message { white-space: normal; }
+  .ticker-message[aria-hidden="true"] { display: none; }
 }
 
 .ticker span {
