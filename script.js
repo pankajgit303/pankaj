@@ -1285,8 +1285,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Home search listeners
   const searchInput = document.getElementById("searchInput");
   const areaFilter = document.getElementById("areaFilter");
-  if (searchInput) searchInput.addEventListener("input", filterHomePandals);
+  if (searchInput) {
+    searchInput.addEventListener("input", filterHomePandals);
+    searchInput.addEventListener("search", filterHomePandals);
+  }
   if (areaFilter) areaFilter.addEventListener("change", filterHomePandals);
+  filterHomePandals();
 
   // Map pill filters
   document.querySelectorAll(".map-pills .filter-pill").forEach(pill => {
